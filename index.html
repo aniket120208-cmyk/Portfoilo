@@ -8,10 +8,9 @@
     <title>Aniket Tiwari | Developer</title>
     <meta name="description" content="Merging clean code with sleek design for a seamless user experience. Explore my projects, skills, and creative work.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://anikettiwari.in/aniket-portfolio">
     <meta property="og:title" content="Aniket | Developer">
     <meta property="og:description" content="Merging clean code with sleek design for a seamless user experience.">
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://img.magnific.com/premium-vector/monogram-logo_1172241-20472.jpg">
 
     <style>
         *, *::before, *::after { box-sizing: border-box; }
@@ -56,18 +55,6 @@
             from { opacity: 0; transform: scale(0.88); }
             to   { opacity: 1; transform: scale(1); }
         }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-40px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(40px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            50.01%, 100% { opacity: 0; }
-        }
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to   { transform: rotate(360deg); }
@@ -75,12 +62,6 @@
         @keyframes rotateLegacy {
             0%   { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-        @keyframes smoothShake {
-            10%, 90% { transform: translateX(-0.5px); }
-            20%, 80% { transform: translateX(1px); }
-            30%, 50%, 70% { transform: translateX(-1.5px); }
-            40%, 60% { transform: translateX(1.5px); }
         }
         @keyframes pulseGlow {
             0%, 100% { box-shadow: 0 0 0 0 rgba(255, 161, 22, 0); }
@@ -91,11 +72,6 @@
             50%  { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        @keyframes iconCycle {
-            0%, 40%  { opacity: 1; filter: blur(0); }
-            50%, 90% { opacity: 0; filter: blur(12px); }
-            100%     { opacity: 1; filter: blur(0); }
-        }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50%       { transform: translateY(-8px); }
@@ -103,17 +79,6 @@
         @keyframes borderPulse {
             0%, 100% { border-color: rgba(255,255,255,0.08); }
             50%       { border-color: rgba(255,165,0,0.25); }
-        }
-        @keyframes moveJames {
-            0%   { transform: translate(0,0); }
-            20%  { transform: translate(-15px, 10px); }
-            50%  { transform: translate(250px, 40px); }
-            80%  { transform: translate(280px, 20px); }
-            100% { transform: translate(0,0); }
-        }
-        @keyframes floatEmma {
-            0%, 100% { transform: translate(0,0); }
-            50%       { transform: translate(10px, -105px); }
         }
 
         .nav-bar-row {
@@ -194,14 +159,6 @@
         }
         .glass-navbar li a:hover { color: #fff; }
         .glass-navbar li.active { color: #fff; }
-        .glass-navbar .dot {
-            display: inline-block;
-            width: 0.5em; height: 0.5em;
-            background: #fff;
-            border-radius: 50%;
-            margin-right: 0.5em;
-            vertical-align: middle;
-        }
 
         .nav-bar-actions {
             display: flex;
@@ -481,7 +438,6 @@
             color: #828282;
             margin-bottom: 20px;
         }
-        .featured-description a { text-decoration: none; }
 
         .featured-button-container { margin-top: 30px; }
 
@@ -681,20 +637,31 @@
         }
         .skill-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(255,157,77,0.4);
-            background: rgba(255,157,77,0.05);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+            border-color: var(--skill-color, #ff9d4d);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.4);
         }
         .skill-icon {
             width: 52px; height: 52px;
             border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            font-family: sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            color: #0a0a0a;
-            background-color: var(--skill-color, #ff9d4d);
-            box-shadow: 0 8px 18px -6px var(--skill-color, #ff9d4d);
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .skill-icon img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .skill-card:hover .skill-icon {
+            box-shadow: 0 0 18px var(--skill-color, transparent);
+            border-color: var(--skill-color, transparent);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .skill-card:hover .skill-icon img {
+            transform: scale(1.15); 
         }
         .skill-name {
             font-family: sans-serif;
@@ -706,7 +673,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
         .project-card {
@@ -755,7 +722,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
         .project-tech span {
             font-family: sans-serif;
@@ -764,6 +731,12 @@
             border: 1px solid rgba(255,255,255,0.14);
             padding: 4px 10px;
             border-radius: 999px;
+        }
+        .project-links-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
         }
         .project-link {
             font-family: sans-serif;
@@ -774,6 +747,23 @@
             transition: color 0.2s ease, gap 0.2s ease;
         }
         .project-link:hover { color: #ff9d4d; }
+        .project-source {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #a3a3a3;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .project-source:hover { color: #fff; }
+        .project-source svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
 
         .site-footer-v2 {
             --footer-accent: #ff9d4d;
@@ -1053,8 +1043,7 @@
             }
             .card-name { font-size: 2rem; }
             .main-portrait img { max-width: 220px; }
-            .card-footer { padding: 14px 18px; }
-            .card-footer { flex-direction: row; }
+            .card-footer { padding: 14px 18px; flex-direction: row; }
 
             .site-footer-v2 { padding: 56px 14px 36px; margin-top: 48px; }
             .site-footer-v2__container { padding: 22px 18px; }
@@ -1256,36 +1245,54 @@
             </div>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <div class="skill-icon" style="--skill-color:#54C5F8;">Fl</div>
+                    <div class="skill-icon" style="--skill-color:#54C5F8;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" alt="Flutter">
+                    </div>
                     <span class="skill-name">Flutter</span>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon" style="--skill-color:#0175C2;">Dt</div>
+                    <div class="skill-icon" style="--skill-color:#0175C2;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" alt="Dart">
+                    </div>
                     <span class="skill-name">Dart</span>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon" style="--skill-color:#E34F26;">Ht</div>
+                    <div class="skill-icon" style="--skill-color:#E34F26;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5">
+                    </div>
                     <span class="skill-name">HTML5</span>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon" style="--skill-color:#1572B6;">Cs</div>
+                    <div class="skill-icon" style="--skill-color:#1572B6;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3">
+                    </div>
                     <span class="skill-name">CSS3</span>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon" style="--skill-color:#FFCA28;">Fb</div>
+                    <div class="skill-icon" style="--skill-color:#FFCA28;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" alt="Firebase">
+                    </div>
                     <span class="skill-name">Firebase</span>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon" style="--skill-color:#68A063;">Nd</div>
+                    <div class="skill-icon" style="--skill-color:#68A063;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                    </div>
                     <span class="skill-name">Node.js</span>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon" style="--skill-color:#F05032;">Gt</div>
+                    <div class="skill-icon" style="--skill-color:#F05032;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
+                    </div>
                     <span class="skill-name">Git &amp; GitHub</span>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon" style="--skill-color:#F24E1E;">Fg</div>
+                    <div class="skill-icon" style="--skill-color:#F24E1E;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma">
+                    </div>
                     <span class="skill-name">Figma</span>
+                </div>
+            </div>
                 </div>
             </div>
         </section>
@@ -1297,6 +1304,25 @@
                 <p class="section-subheading">A few things I've built and shipped recently.</p>
             </div>
             <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-tag">Mobile App</span>
+                    </div>
+                    <h3 class="project-title">CampusGigs</h3>
+                    <p class="project-desc">A peer help and secondhand marketplace app for college students. Connect with peers for tasks and trade securely.</p>
+                    <div class="project-tech">
+                        <span>Flutter</span><span>Dart</span><span>Firebase</span>
+                    </div>
+                    <div class="project-links-container">
+                        <a href="https://play.google.com/store/apps/details?id=com.campusgigs.student" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-source" title="Source Code">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                            Source
+                        </a>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div class="project-card-top">
                         <span class="project-tag">Mobile App</span>
@@ -1306,8 +1332,15 @@
                     <div class="project-tech">
                         <span>Flutter</span><span>Dart</span><span>Firebase</span>
                     </div>
-                    <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                    <div class="project-links-container">
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-source" title="Source Code">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                            Source
+                        </a>
+                    </div>
                 </div>
+                
                 <div class="project-card">
                     <div class="project-card-top">
                         <span class="project-tag">Web App</span>
@@ -1317,8 +1350,15 @@
                     <div class="project-tech">
                         <span>JavaScript</span><span>React</span><span>Node.js</span>
                     </div>
-                    <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                    <div class="project-links-container">
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-source" title="Source Code">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                            Source
+                        </a>
+                    </div>
                 </div>
+
                 <div class="project-card">
                     <div class="project-card-top">
                         <span class="project-tag">Full Stack</span>
@@ -1328,8 +1368,15 @@
                     <div class="project-tech">
                         <span>Python</span><span>SQL</span><span>Firebase</span>
                     </div>
-                    <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                    <div class="project-links-container">
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-source" title="Source Code">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                            Source
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </section>
 
