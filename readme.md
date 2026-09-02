@@ -1,0 +1,1 @@
+This is my portfolio website. I built it using html and css. It includes various details like - About me , my skills , my projects and also my contact info. 
