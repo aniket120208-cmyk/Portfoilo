@@ -117,6 +117,10 @@
             letter-spacing: 0.26em;
         }
 
+        /* NEW: Hide the checkbox and hamburger on desktop */
+        .mobile-menu-toggle { display: none; }
+        .hamburger { display: none; }
+
         .glass-navbar {
             margin-left: auto;
             border-radius: 40px;
@@ -129,7 +133,7 @@
             display: flex;
             align-items: center;
             user-select: none;
-            transition: border-color 0.4s ease;
+            transition: border-color 0.4s ease, opacity 0.3s, transform 0.3s;
             animation: borderPulse 4s ease-in-out infinite;
         }
         .glass-navbar ul {
@@ -984,11 +988,78 @@
                 gap: 0.8rem;
                 justify-content: space-between;
                 flex-wrap: nowrap;
+                position: fixed;
             }
             .nav-bar-logo { margin: 0; }
             .nav-bar-logo-text { font-size: 0.8rem; letter-spacing: 0.14em; }
-            .glass-navbar { display: none; }
             .nav-bar-actions { display: none; }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                z-index: 102;
+            }
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: #fff;
+                border-radius: 3px;
+                transition: all 0.3s ease-in-out;
+            }
+            
+            .mobile-menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .mobile-menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+            .mobile-menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .glass-navbar {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 1.2rem;
+                right: 1.2rem;
+                margin-top: 1rem;
+                padding: 1.5rem;
+                flex-direction: column;
+                border-radius: 20px;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                animation: none; 
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-20px);
+                pointer-events: none;
+            }
+            
+            .glass-navbar ul {
+                flex-direction: column;
+                width: 100%;
+                gap: 1.5rem;
+            }
+            
+            .glass-navbar li {
+                width: 100%;
+                justify-content: center;
+                font-size: 1rem;
+            }
+
+            /* Show Menu state */
+            .mobile-menu-toggle:checked ~ .glass-navbar {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
 
             .hero-wrapper {
                 margin-top: 0;
@@ -1087,6 +1158,13 @@
                 <div class="nav-bar-logo">
                     <a href="index.html" class="nav-bar-logo-text">Aniket Tiwari.</a>
                 </div>
+
+                <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+                <label for="mobile-menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
 
                 <nav class="glass-navbar">
                     <ul>
@@ -1291,8 +1369,6 @@
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma">
                     </div>
                     <span class="skill-name">Figma</span>
-                </div>
-            </div>
                 </div>
             </div>
         </section>
