@@ -117,7 +117,6 @@
             letter-spacing: 0.26em;
         }
 
-        /* NEW: Hide the checkbox and hamburger on desktop */
         .mobile-menu-toggle { display: none; }
         .hamburger { display: none; }
 
@@ -407,7 +406,7 @@
             text-align: center;
         }
 
-        .ai-powered-tag {
+        .glow-tag {
             background-color: #1a1a1a;
             color: #8c8c8c;
             padding: 6px 12px;
@@ -674,7 +673,6 @@
             color: #e5e5e5;
             text-align: center;
         }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -768,12 +766,92 @@
             height: 18px;
             fill: currentColor;
         }
+        .contact-form-section {
+            position: relative;
+            max-width: 800px;
+            margin: 90px auto;
+            padding: 0 24px;
+        }
+        .contact-form-container {
+            background: linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            font-weight: 500;
+            margin-left: 4px;
+        }
+        .form-group input, .form-group textarea {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: #777;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #ff9d4d;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 15px rgba(255, 157, 77, 0.15);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .submit-btn {
+            margin-top: 10px;
+            padding: 14px 32px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #232323;
+            background: linear-gradient(90deg, #FFA116 0%, #FFA116 100%);
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-family: sans-serif;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            align-self: flex-start;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #ff9800 0%, #ffd000 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(255,161,22,0.3);
+        }
 
         .site-footer-v2 {
             --footer-accent: #ff9d4d;
             --footer-glow: rgba(255,157,77,0.42);
             position: relative;
-            margin-top: 96px;
+            margin-top: 40px;
             padding: 90px 24px 56px;
             overflow: hidden;
             border-top: 1px solid rgba(255,255,255,0.05);
@@ -1053,7 +1131,6 @@
                 font-size: 1rem;
             }
 
-            /* Show Menu state */
             .mobile-menu-toggle:checked ~ .glass-navbar {
                 opacity: 1;
                 visibility: visible;
@@ -1102,10 +1179,17 @@
                 align-items: center;
             }
 
-            .skills-section, .projects-section { margin: 60px auto; }
+            .skills-section, .projects-section, .contact-form-section { margin: 60px auto; }
             .section-heading { font-size: 1.9rem; }
             .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
             .projects-grid { grid-template-columns: 1fr; gap: 18px; }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .contact-form-container { padding: 24px; }
+            .submit-btn { align-self: stretch; width: 100%; text-align: center; }
 
             .card {
                 width: 100%;
@@ -1262,7 +1346,7 @@
         <section class="featured-section" id="about">
             <div class="featured-content-wrapper">
                 <div class="featured-left-column">
-                    <span class="ai-powered-tag">ABOUT ME</span>
+                    <span class="glow-tag">ABOUT ME</span>
                     <h2 class="featured-heading">
                         Turning ideas into <br>
                         <span class="gemini-highlight">real experiences</span>.
@@ -1317,7 +1401,7 @@
 
         <section class="skills-section" id="skills">
             <div class="skills-header">
-                <span class="ai-powered-tag">WHAT I WORK WITH</span>
+                <span class="glow-tag">WHAT I WORK WITH</span>
                 <h2 class="section-heading">My <span class="gemini-highlight">Skills</span></h2>
                 <p class="section-subheading">Languages, tools, and frameworks I use to design and build projects.</p>
             </div>
@@ -1375,7 +1459,7 @@
 
         <section class="projects-section" id="projects">
             <div class="skills-header">
-                <span class="ai-powered-tag">MY WORK</span>
+                <span class="glow-tag">MY WORK</span>
                 <h2 class="section-heading">Featured <span class="gemini-highlight">Projects</span></h2>
                 <p class="section-subheading">A few things I've built and shipped recently.</p>
             </div>
@@ -1422,9 +1506,27 @@
                         <span class="project-tag">Mobile App</span>
                     </div>
                     <h3 class="project-title">Food Ordering App</h3>
-                    <p class="project-desc">A Flutter food-ordering app with menu browsing, search & filtering, favorites, a cart, and persistent order history — built with a lightweight, dependency-free state management approach.</p>
+                    <p class="project-desc">A Flutter food-ordering app with menu browsing, search & filtering, favorites, a cart, and persistent order history.</p>
                     <div class="project-tech">
                         <span>Flutter</span><span>Dart</span><span>REST API</span>
+                    </div>
+                    <div class="project-links-container">
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                        <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-source" title="Source Code">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                            Source
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-tag">Mobile App</span>
+                    </div>
+                    <h3 class="project-title">Expense Tracker App</h3>
+                    <p class="project-desc">A Expense Tracker app that helps you to track your expeses with expense type selection and graph for more advance tracking.</p>
+                    <div class="project-tech">
+                        <span>Flutter</span><span>Dart</span>
                     </div>
                     <div class="project-links-container">
                         <a href="https://github.com/aniket120208-cmyk" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
@@ -1438,7 +1540,39 @@
             </div>
         </section>
 
-        <footer class="site-footer-v2" id="contact">
+        <section class="contact-form-section" id="contact">
+            <div class="skills-header">
+                <span class="glow-tag">GET IN TOUCH</span>
+                <h2 class="section-heading">Send a <span class="gemini-highlight">Message</span></h2>
+                <p class="section-subheading">I'd love to hear from you. Fill out the form below and I'll get back to you.</p>
+            </div>
+            
+            <div class="contact-form-container">
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Aniket Tiwari">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="aniket120208@gmail.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Project Inquiry">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Hello Aniket..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="site-footer-v2" id="site-footer">
             <div class="site-footer-v2__container">
                 <div class="site-footer-v2__bg-text" aria-hidden="true">ANIKET</div>
                 <div class="site-footer-v2__top">
